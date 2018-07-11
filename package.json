@@ -1,0 +1,51 @@
+{
+  "name": "hydration",
+  "version": "1.0.0",
+  "description": "a hugo boilerplate",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.10.2",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.11.6",
+    "browser-sync": "^2.23.7",
+    "critical": "^1.3.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-flatten": "^0.4.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^5.0.0",
+    "hugo-bin": "^0.23.0",
+    "postcss-clean": "^1.1.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "run-sequence": "^2.2.1",
+    "sw-precache": "^5.2.1",
+    "webpack": "4.6.0"
+  },
+  "scripts": {
+    "start": "gulp server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clgeoio/hydration.git"
+  },
+  "keywords": [
+    "hugo",
+    "boilerplate"
+  ],
+  "author": "Cody George",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clgeoio/hydration/issues"
+  },
+  "homepage": "https://github.com/clgeoio/hydration#readme"
+}
