@@ -32,7 +32,8 @@
     "webpack": "4.6.0"
   },
   "scripts": {
-    "start": "gulp server"
+    "start": "gulp server",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",

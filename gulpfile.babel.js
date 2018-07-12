@@ -15,6 +15,7 @@ const browserSync = BrowserSync.create();
 const outputDirectory = 'dist';
 const hugoArgsDefault = ['-d', `../${outputDirectory}`, '-s', 'site', '-v'];
 
+//entry points (thanks npm)
 gulp.task('server', (cb) => {
     runSequence('hugo', 
         ['bundle-minify-css', 'minify-html', 'bundle-minify-js'],
@@ -22,10 +23,11 @@ gulp.task('server', (cb) => {
         'run-server',
       cb);
 });
-
-gulp.task('hugo', (cb) => buildSite(cb));
-gulp.task('run-server', (cb) => {
-  runServer(cb)
+gulp.task('build', (cb) => {
+  runSequence('hugo', 
+      ['bundle-minify-css', 'minify-html', 'bundle-minify-js'],
+      ['critical', 'generate-service-worker'],
+    cb);
 });
 
 gulp.task('bundle-minify-css', () => (
@@ -67,6 +69,12 @@ gulp.task('generate-service-worker', (callback) => {
     }, callback);
   });
 
+
+gulp.task('hugo', (cb) => buildSite(cb));
+gulp.task('run-server', (cb) => {
+  runServer(cb)
+});
+
 //Server up site w/ browsersync
   function runServer() {
     browserSync.init({
@@ -74,10 +82,8 @@ gulp.task('generate-service-worker', (callback) => {
         baseDir: `./${outputDirectory}`
       }
     });
-    //gulp.watch('./src/js/**/*.js', ['js']);
-    gulp.watch('./src/css/main.css', ['compile-css']);
-    //gulp.watch('./src/fonts/**/*', ['fonts']);
-    //gulp.watch('./site/**/*', ['hugo']);
+    gulp.watch('./src/js/**/*.js', ['bundle-minify-js']);
+    gulp.watch('./src/css/main.css', ['bundle-minify-css']);
   };
   
 //Build site
